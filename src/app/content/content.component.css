@@ -4,7 +4,13 @@
 #find{
     margin-top: 2%;
     margin-bottom: 2%;
+    text-align: center;
 }
 /* #image{
     margin-bottom: 1%;
 } */
+.container{
+    background-color: #007bff;
+    color: white;
+    height: 48px;
+}

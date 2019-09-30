@@ -1,8 +1,8 @@
 <p class="head"> </p>
     <div class="mat-form-field-infix"> 
     
-    <input [(ngModel)]="userName" _ngcontent-sls-c0="" class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-pristine ng-valid ng-touched" matinput="" placeholder="Github user name" ng-reflect-placeholder="Github user name" id="mat-input-0" aria-invalid="false" aria-required="false">
-    <hr class="my-4">
+    <input [(ngModel)]="userName" _ngcontent-sls-c0="" class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-pristine ng-valid ng-touched form-control form-control-lg" style="margin-top: 0px;border:none; border-bottom: 1px solid black;" matinput="" placeholder="Github user name" ng-reflect-placeholder="Github user name" id="mat-input-0" aria-invalid="false" aria-required="false">
+    <!-- <hr class="my-4"> -->
     <!-- <span class="mat-form-field-label-wrapper"> -->
     
   <!-- <label class="mat-form-field-label ng-tns-c2-0 mat-empty mat-form-field-empty ng-star-inserted" ng-reflect-ng-switch="false" ng-reflect-disabled="true" id="mat-form-field-label-1" for="mat-input-0" aria-owns="mat-input-0"> -->
@@ -14,12 +14,13 @@
   <div>
   
 </div>
-<div *ngIf= "!success">
+<div *ngIf= "!success; else elseblock">
         <mat-spinner></mat-spinner>
     
 </div>
-<div class="card" style="width: 25rem;" *ngIf="prof">
-        <h3 class="card-title" style="color:teal" class="d-flex justify-content-center">{{prof.name}}</h3>
+<ng-template #elseblock>
+<div class="card" style="width: 25rem;color:white; background-color: darkcyan" *ngIf="prof">
+        <h3 class="card-title" style="color:white" class="d-flex justify-content-center">{{prof.name}}</h3>
         <img [src]=prof.avatar_url class="card-img-top" id="image" alt="profile pic"><br>
         <h4 class="card-text">{{prof.company}}</h4>
         <h5 class="card-text">{{prof.bio}}</h5>
@@ -28,4 +29,7 @@
          
         </div>
       </div>
-     <!-- <button type="button" class="btn btn-primary" id="find">NO DATA TO DISPLAY</button>  -->
+    </ng-template>
+      <div *ngIf= "noUser">
+     <div  class="container" id="find">NO DATA TO DISPLAY</div> 
+    </div>
