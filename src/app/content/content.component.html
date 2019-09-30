@@ -19,7 +19,7 @@
     
 </div>
 <ng-template #elseblock>
-<div class="card" style="width: 25rem;color:white; background-color: darkcyan" *ngIf="prof">
+<div class="card" style="width: 25rem;color:white; background-color: darkcyan" *ngIf="prof; else noUserblock">
         <h3 class="card-title" style="color:white" class="d-flex justify-content-center">{{prof.name}}</h3>
         <img [src]=prof.avatar_url class="card-img-top" id="image" alt="profile pic"><br>
         <h4 class="card-text">{{prof.company}}</h4>
@@ -29,7 +29,10 @@
          
         </div>
       </div>
-    </ng-template>
+      <ng-template #noUserblock>
       <div *ngIf= "noUser">
-     <div  class="container" id="find">NO DATA TO DISPLAY</div> 
-    </div>
+        <div  class="container" id="find">NO DATA TO DISPLAY</div> 
+       </div>
+       </ng-template>
+    </ng-template>
+      

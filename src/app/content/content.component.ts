@@ -22,7 +22,7 @@ export class ContentComponent implements OnInit {
       this.prof = JSON.parse(localStorage.getItem(this.userName));
     } else {
       this.success = false;
-      this.httpClient.get(this.baseUrl + this.userName + `?access_token=8d37aa24a19f6f9467b2752a02e9459c90c82e88 `).subscribe((res) => {
+      this.httpClient.get(this.baseUrl + this.userName ).subscribe((res) => {
         this.success = true;
         this.prof = res;
         localStorage.setItem(this.userName, JSON.stringify(this.prof));
@@ -34,6 +34,7 @@ export class ContentComponent implements OnInit {
         () => {
           this.success = true;
           this.noUser = true;
+          this.prof = null;
           this.snackBar.open('not found', ' ', {
             duration: 2000,
           });
